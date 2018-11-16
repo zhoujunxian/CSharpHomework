@@ -12,7 +12,6 @@ namespace homework7
     [Serializable]
     public class OrderService
     {
-          //XML序列化
         public void Export()
         {
             XmlSerializer xmlser = new XmlSerializer(typeof(List<Order>));
@@ -22,7 +21,7 @@ namespace homework7
             string xml = File.ReadAllText(xmlFileName);
             Console.WriteLine(xml);
         }
-          //反序列化
+        //反序列化
         public void Import()
         {
             try
@@ -33,12 +32,12 @@ namespace homework7
                 fs.Close();
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
-        public static void XmlSerialize(XmlSerializer ser,string fileName,object ojb)
+        public static void XmlSerialize(XmlSerializer ser, string fileName, object ojb)
         {
             FileStream fs = new FileStream(fileName, FileMode.Create);
             ser.Serialize(fs, ojb);
@@ -53,7 +52,7 @@ namespace homework7
         //    return ojb;
         //}
 
-        public void AddOrder(string OrderNum , string OrderName,string OrderBuyer ,double OrderCost)
+        public void AddOrder(string OrderNum, string OrderName, string OrderBuyer, double OrderCost)
         {
             Order order = new Order(OrderNum, OrderName, OrderBuyer, OrderCost);
             Order.orders.Add(order);
@@ -61,16 +60,16 @@ namespace homework7
         }
         public bool DelectOrderByNum(string OrderNum)
         {
-            foreach(Order s in Order.orders)
+            foreach (Order s in Order.orders)
             {
-                if(s.Number == OrderNum)
+                if (s.Number == OrderNum)
                 {
                     Order.orders.Remove(s);
                     return true;
                 }
             }
             return false;
-    
+
         }
         public bool DelectOrderByName(string OrderName)
         {
@@ -107,7 +106,7 @@ namespace homework7
                 Console.WriteLine("按订单号搜索出的订单为：" + orders.Number + "，" + orders.Name +
                     "，" + orders.Buyer + "," + orders.Cost);
             }
- 
+
         }
         public void SearchOrderByName(string OrderName)
         {
@@ -134,7 +133,7 @@ namespace homework7
         public void SearchOrderNumUpTenthousand()
         {
             var order = from s in Order.orders
-                        where s.Cost>10000
+                        where s.Cost > 10000
                         select s;
             foreach (Order orders in order)
             {
@@ -152,7 +151,7 @@ namespace homework7
                     s.Number = NewOrderNum;
                     return true;
                 }
-                
+
             }
             return false;
         }

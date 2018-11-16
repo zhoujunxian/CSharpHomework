@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace homework8
 {
-    public partial class Form1 : Form
+    public partial class SucceedOrderForm : Form
     {
-        public Form1()
+        public SucceedOrderForm()
         {
             InitializeComponent();
         }

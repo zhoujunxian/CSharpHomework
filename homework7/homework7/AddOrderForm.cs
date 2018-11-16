@@ -23,16 +23,9 @@ namespace homework7
             textBox2.DataBindings.Add("Text", this, "Name1");
             textBox3.DataBindings.Add("Text", this, "Buyer");
             textBox4.DataBindings.Add("Text", this, "Cost");
-
-
         }
 
         private void AddOrderForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -41,12 +34,6 @@ namespace homework7
         {
             OrderService ojb = new OrderService();
             ojb.AddOrder(Number, Name1, Buyer, Cost);
-            
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

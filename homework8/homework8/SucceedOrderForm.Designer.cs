@@ -1,6 +1,6 @@
 ﻿namespace homework8
 {
-    partial class CorrectNumberForm
+    partial class SucceedOrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,47 +29,25 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(290, 76);
+            this.label1.Location = new System.Drawing.Point(202, 117);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 18);
+            this.label1.Size = new System.Drawing.Size(134, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "请输入正确的订单号！";
+            this.label1.Text = "订单添加成功！";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(119, 136);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(602, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "订单号的正确格式为 年月日+三位流水号（订单号不能为空，也不能重复）";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(312, 178);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "如 20181113001";
-            // 
-            // CorrectNumberForm
+            // SucceedOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 344);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(562, 256);
             this.Controls.Add(this.label1);
-            this.Name = "CorrectNumberForm";
-            this.Text = "CorrectNumberForm";
+            this.Name = "SucceedOrderForm";
+            this.Text = "SucceedOrderForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,7 +56,5 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
     }
 }

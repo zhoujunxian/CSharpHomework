@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace homework7
 {
-    
     public class Order
     {
-        
         public string Number { get; set; }
         public string Name { get; set; }
         public string Buyer { get; set; }
@@ -30,5 +27,4 @@ namespace homework7
         }
 
     }
-    
 }

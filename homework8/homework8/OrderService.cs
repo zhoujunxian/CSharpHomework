@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
 
-namespace homework7
+namespace homework8
 {
     [Serializable]
     public class OrderService
     {
-          //XML序列化
+
         public void Export()
         {
             XmlSerializer xmlser = new XmlSerializer(typeof(List<Order>));
@@ -22,7 +23,7 @@ namespace homework7
             string xml = File.ReadAllText(xmlFileName);
             Console.WriteLine(xml);
         }
-          //反序列化
+        //反序列化
         public void Import()
         {
             try
@@ -33,12 +34,12 @@ namespace homework7
                 fs.Close();
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
-        public static void XmlSerialize(XmlSerializer ser,string fileName,object ojb)
+        public static void XmlSerialize(XmlSerializer ser, string fileName, object ojb)
         {
             FileStream fs = new FileStream(fileName, FileMode.Create);
             ser.Serialize(fs, ojb);
@@ -53,24 +54,24 @@ namespace homework7
         //    return ojb;
         //}
 
-        public void AddOrder(string OrderNum , string OrderName,string OrderBuyer ,double OrderCost)
+        public void AddOrder(string OrderNum, string OrderName, string OrderBuyer, double OrderCost,string OrderPhoneNum)
         {
-            Order order = new Order(OrderNum, OrderName, OrderBuyer, OrderCost);
+            Order order = new Order(OrderNum, OrderName, OrderBuyer, OrderCost,OrderPhoneNum);
             Order.orders.Add(order);
 
         }
         public bool DelectOrderByNum(string OrderNum)
         {
-            foreach(Order s in Order.orders)
+            foreach (Order s in Order.orders)
             {
-                if(s.Number == OrderNum)
+                if (s.Number == OrderNum)
                 {
                     Order.orders.Remove(s);
                     return true;
                 }
             }
             return false;
-    
+
         }
         public bool DelectOrderByName(string OrderName)
         {
@@ -97,6 +98,19 @@ namespace homework7
             return false;
         }
 
+        public bool DelectOrderByPhoneNum(string OrderPhoneNum)
+        {
+            foreach (Order s in Order.orders)
+            {
+                if (s.PhoneNum == OrderPhoneNum)
+                {
+                    Order.orders.Remove(s);
+                    return true;
+                }
+            }
+            return false;
+
+        }
         public void SearchOrderByNum(string OrderNum)
         {
             var order = from s in Order.orders
@@ -107,7 +121,7 @@ namespace homework7
                 Console.WriteLine("按订单号搜索出的订单为：" + orders.Number + "，" + orders.Name +
                     "，" + orders.Buyer + "," + orders.Cost);
             }
- 
+
         }
         public void SearchOrderByName(string OrderName)
         {
@@ -117,7 +131,7 @@ namespace homework7
             foreach (Order orders in order)
             {
                 Console.WriteLine("按商品名搜索出的订单为：" + orders.Number + "，" + orders.Name +
-                    "，" + orders.Buyer + "," + orders.Cost);
+                    "，" + orders.Buyer + "," + orders.Cost + "," + orders.PhoneNum);
             }
         }
         public void SearchOrderByBuyer(string OrderBuyer)
@@ -128,18 +142,18 @@ namespace homework7
             foreach (Order orders in order)
             {
                 Console.WriteLine("按购买者搜索出的订单为：" + orders.Number + "，" + orders.Name +
-                    "，" + orders.Buyer + "," + orders.Cost);
+                    "，" + orders.Buyer + "," + orders.Cost + "," + orders.PhoneNum);
             }
         }
         public void SearchOrderNumUpTenthousand()
         {
             var order = from s in Order.orders
-                        where s.Cost>10000
+                        where s.Cost > 10000
                         select s;
             foreach (Order orders in order)
             {
                 Console.WriteLine("金额超出1万元的订单为：" + orders.Number + "，" + orders.Name +
-                    "，" + orders.Buyer + "," + orders.Cost);
+                    "，" + orders.Buyer + "," + orders.Cost + "," + orders.PhoneNum);
             }
 
         }
@@ -152,7 +166,7 @@ namespace homework7
                     s.Number = NewOrderNum;
                     return true;
                 }
-                
+
             }
             return false;
         }
@@ -181,6 +195,65 @@ namespace homework7
 
             }
             return false;
+        }
+        public bool ChangeOrderByPhoneNum(string OldOrderPhoneNum, string NewOrderPhoneNum)
+        {
+            foreach (Order s in Order.orders)
+            {
+                if (s.PhoneNum == OldOrderPhoneNum)
+                {
+                    s.PhoneNum = NewOrderPhoneNum;
+                    return true;
+                }
+
+            }
+            return false;
+        }
+        public bool IsNumber(string s)
+        {
+            foreach (Order str in Order.orders)
+            {
+                if(str.Number==s)
+                {
+                    return false;
+                }
+            }
+            string pattern="^20[0-9]{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])[0-9]{3}$";
+            try
+            {
+                if (Regex.IsMatch(s, pattern))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool IsPhoneNum(string s)
+        {
+            string pattern = "^1[0-9]{10}$";
+            try
+            {
+                if (Regex.IsMatch(s, pattern))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

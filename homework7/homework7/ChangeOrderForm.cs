@@ -34,27 +34,23 @@ namespace homework7
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             OrderService ojb = new OrderService();
-            bool flag=ojb.ChangeOrderByNum(OldNumber,NewNumber);
+            bool flag = ojb.ChangeOrderByNum(OldNumber, NewNumber);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             OrderService ojb = new OrderService();
-            bool flag=ojb.ChangeOrderByName(OldName1, NewName1);
+            bool flag = ojb.ChangeOrderByName(OldName1, NewName1);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             OrderService ojb = new OrderService();
-            bool flag=ojb.ChangeOrderByBuyer(OldBuyer, NewBuyer);
+            bool flag = ojb.ChangeOrderByBuyer(OldBuyer, NewBuyer);
+
         }
     }
 }

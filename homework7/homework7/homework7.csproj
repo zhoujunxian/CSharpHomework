@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D7407F8-E9DA-4F44-9B45-397C1B58FA82}</ProjectGuid>
+    <ProjectGuid>{BE8A2CD7-9F9A-4261-AC48-A6FC03548E8F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>homework7</RootNamespace>
     <AssemblyName>homework7</AssemblyName>
@@ -95,9 +95,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\Order.datasource">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Properties\DataSources\Order.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -110,9 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

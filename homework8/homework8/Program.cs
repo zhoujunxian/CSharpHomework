@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-namespace homework7
+namespace homework8
 {
     static class Program
     {
@@ -18,12 +17,6 @@ namespace homework7
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
-            
-
-
-
-            
-
         }
     }
 }

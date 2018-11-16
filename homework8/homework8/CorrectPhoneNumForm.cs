@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace homework8
 {
-    
     public partial class CorrectPhoneNumForm : Form
     {
         public CorrectPhoneNumForm()
         {
             InitializeComponent();
-        }
-
-        private void CorrectPhoneNumForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
