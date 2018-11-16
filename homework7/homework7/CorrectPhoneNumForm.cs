@@ -8,16 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace homework7
+namespace homework8
 {
-    public partial class MainForm : Form
+    
+    public partial class CorrectPhoneNumForm : Form
     {
-        public MainForm()
+        public CorrectPhoneNumForm()
         {
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void CorrectPhoneNumForm_Load(object sender, EventArgs e)
         {
 
         }
